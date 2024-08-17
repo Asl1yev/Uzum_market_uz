@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Saytga Kirish {% endblock title %}
+
+
+
+    {% block content %}
+            <div class="py-3 bg-primary">
+            <div class="container">
+                <a class="text-white" href="{% url 'home' %}">Bosh sahifa /</a>
+                <a class="text-white" href="{% url 'register' %}">Ro'yxatdan O'tish /</a>
+                <a class="text-white" href="{% url 'login' %}">Saytga Kirish /</a>
+            </div>
+        </div>
+        <div class="container mt-5">
+
+            <div class="row">
+
+                <div class="col-2">
+
+                </div>
+                <div class="col-6">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <h4>{{ product.name }}</h4>
+                        <p>Siz rostdanham mahsulotni O'chirasizmi ?</p>
+                        <button type="submit" class="btn btn-danger">O'chirish</button>
+                    </form>
+
+                </div>
+                <div class="col-4"></div>
+
+
+            </div>
+        </div>
+    {% endblock content %}

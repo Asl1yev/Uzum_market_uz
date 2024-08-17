@@ -1,0 +1,34 @@
+<!-- cart.html -->
+
+{% extends 'base.html' %}
+{% block title %} Savat {% endblock title %}
+
+{% block content %}
+    <h2>Savatingiz</h2>
+
+    {% if user_cart %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Miqdor</th>
+                    <th>Narx</th>
+                    <!-- Boshqa ustunlar -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in user_cart %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.product_qty }}</td>
+                        <td>{{ item.product.selling_price|stringformat:"d" }} so'm</td>
+                        <!-- Boshqa qiymatlar -->
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>Umumiy narx: {{ total_price|stringformat:"d" }} so'm</p>
+
+    {% endif %}
+{% endblock content %}
